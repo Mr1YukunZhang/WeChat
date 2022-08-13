@@ -1,9 +1,7 @@
 name: morning
 on:
- push:
-    branches: [ master ]
  schedule:
- - cron:  '18 18 * * *'
+ - cron:  '27 18 * * *'
  workflow_dispatch:
 
 jobs:
