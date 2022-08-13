@@ -16,7 +16,7 @@ app_secret = os.environ["APP_SECRET"]
 
 user_id = os.environ["USER_ID"]
 template_id = os.environ["TEMPLATE_ID"]
-
+template_id1 = os.environ["TEMPLATE_ID1"]
 
 def get_weather():
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
@@ -46,6 +46,13 @@ def get_words():
     return get_words()
   return words.json()['data']['text']
 
+def get_words1():
+  words = requests.get("https://api.shadiao.pro/du")
+  if words.status_code != 200:
+    return get_words()
+  return words.json()['data']['text']
+
+
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
 
@@ -54,6 +61,9 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature = get_weather()
-data = {"weather":{"value":wea},"city":{"value":city},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"birthday_right":{"value":get_birthday1()},"words":{"value":get_words(), "color":get_random_color()}}
+data = {"weather":{"value":wea},"city":{"value":city , "color":palegreen},"temperature":{"value":temperature , "color":red},"love_days":{"value":get_count() , "color":lightpink},"birthday_left":{"value":get_birthday()},"birthday_right":{"value":get_birthday1()},"words":{"value":get_words(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
+data1 = {"words1":{"value":get_words1 , "color":get_random_color()}}
+res1=wm.send_template(user_id, template_id1, data1)
+print(res1)
