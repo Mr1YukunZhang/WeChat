@@ -64,6 +64,6 @@ wea, temperature = get_weather()
 data = {"weather":{"value":wea},"city":{"value":city , "color":'#98FB98'},"temperature":{"value":temperature , "color":'#DB7093'},"love_days":{"value":get_count() , "color":'#FFB6C1'},"birthday_left":{"value":get_birthday(),"color":'#1E90FF'},"birthday_right":{"value":get_birthday1(),"color":'#1E90FF'},"words":{"value":get_words(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
-data1 = {"words1":{"value":get_words1 , "color":get_random_color()}}
-res1=wm.send_template(user_id, template_id1, data1)
+data1 = {"words1":{"value":get_words1() , "color":get_random_color()}}
+res1 = wm.send_template(user_id, template_id1, data1)
 print(res1)
