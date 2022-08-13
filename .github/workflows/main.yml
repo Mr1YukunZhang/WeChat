@@ -31,3 +31,4 @@ jobs:
       BIRTHDAY: ${{ secrets.BIRTHDAY }}
       CITY: ${{ secrets.CITY }}
       BIRTHDAY1: ${{ secrets.BIRTHDAY1}}
+      TEMPLATE_ID1: ${{ secrets.TEMPLATE_ID1 }}
