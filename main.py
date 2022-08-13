@@ -50,7 +50,7 @@ def get_words1():
   words1 = requests.get("https://api.shadiao.pro/chp")
   if words1.status_code != 200:
     return get_words1()
-  return words1.json()['data1']['text']
+  return words1.json()['data']['text']
 
 
 def get_random_color():
