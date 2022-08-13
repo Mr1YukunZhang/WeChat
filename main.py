@@ -67,5 +67,5 @@ res1 = wm.send_template(user_id1, template_id, data)
 print(res)
 data1 = {"words1":{"value":get_words1() , "color":get_random_color()}}
 res2 = wm.send_template(user_id, template_id1, data1)
-res3 = wm.send_template(user_id, template_id1, data1)
+res3 = wm.send_template(user_id1, template_id1, data1)
 print(res1)
